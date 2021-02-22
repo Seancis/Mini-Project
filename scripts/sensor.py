@@ -92,7 +92,7 @@ def bpm():
               runningTotal += rate[9];                # add the latest IBI to runningTotal
               runningTotal /= 10;                     # average the last 10 IBI values 
               BPM = 60000/runningTotal;               # how many beats can fit into a minute? that's BPM!
-              print 'BPM: {}'.format(BPM)
+              print(BPM)
 
         if Signal < thresh and Pulse == True :   # when the values are going down, the beat is over
             Pulse = False;                         # reset the Pulse flag so we can do it again
