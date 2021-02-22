@@ -10,7 +10,7 @@ import os
 import glob
 import busio
 import RPi.GPIO as GPIO
-from sensor.py import channel.value
+from sensor import value
 
 """------------------------------------------------------------------------"""
 """                             LCD Display                                """
@@ -33,8 +33,9 @@ lcd = characterlcd.Character_LCD_Mono(
     lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6, lcd_d7, lcd_columns, lcd_rows, lcd_backlight
 )
 
-bpmraw = channel.value
-print(bpmraw)
+while True:
+    bpmraw = value()
+    print(bpmraw)
 
 lcd_line_1 = '  Open | Closed  '
 lcd_line_2 = '\n Adjust|  Auto   '

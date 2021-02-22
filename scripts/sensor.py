@@ -17,11 +17,8 @@ channel = AnalogIn(mcp, MCP.P0)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(17,  GPIO.OUT)
 
-while True:
-  print('Raw ADC Value: ', channel.value)
-  print('ADC Voltage: ' + str(channel.voltage) + 'V')
-  if channel.voltage > 2.0:
-    GPIO.output(17, True)
-  else:
-    GPIO.output(17, False)
-  time.sleep(0.5)
+def value():
+    while True:
+        bpmraw = channel.value
+        time.sleep(0.5)
+        return bpmraw
