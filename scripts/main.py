@@ -10,6 +10,7 @@ import os
 import glob
 import busio
 import RPi.GPIO as GPIO
+from sensor.py import channel.value
 
 """------------------------------------------------------------------------"""
 """                             LCD Display                                """
@@ -32,32 +33,14 @@ lcd = characterlcd.Character_LCD_Mono(
     lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6, lcd_d7, lcd_columns, lcd_rows, lcd_backlight
 )
 
-
+bpmraw = channel.value
+print(bpmraw)
 
 lcd_line_1 = '  Open | Closed  '
 lcd_line_2 = '\n Adjust|  Auto   '
 lcd.message = lcd_line_1 + lcd_line_2
-GPIO.cleanup()
 
-"""------------------------------------------------------------------------"""
-"""                             Pulse Sensor                                """
-"""------------------------------------------------------------------------"""
-spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
-cs = digitalio.DigitalInOut(board.D5)
-mcp = MCP.MCP3008(spi, cs)
-channel = AnalogIn(mcp, MCP.P0)
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(17,  GPIO.OUT)
-
-while True:
-  print('Raw ADC Value: ', channel.value)
-  print('ADC Voltage: ' + str(channel.voltage) + 'V')
-  if channel.voltage > 2.0:
-    GPIO.output(17, True)
-  else:
-    GPIO.output(17, False)
-  time.sleep(0.5)
 
 
 """ Reference for functionality with different adc
