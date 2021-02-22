@@ -4,6 +4,7 @@ import board
 import time
 import digitalio
 import adafruit_mcp3xxx.mcp3008 as MCP
+from adafruit_mcp3xxx.analog_in import AnalogIn
 import adafruit_character_lcd.character_lcd as characterlcd
 import os
 import glob
