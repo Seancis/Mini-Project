@@ -50,11 +50,14 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(17,  GPIO.OUT)
 
 while True:
-  print('Raw ADC Value: ', channel0.value)
-  print('ADC Voltage: ' + str(channel0.voltage) + 'V')
+  print('Raw ADC Value: ', channel.value)
+  print('ADC Voltage: ' + str(channel.voltage) + 'V')
+  if channel.voltage > 2.0:
+    GPIO.output(17, True)
+  else:
+    GPIO.output(17, False)
   time.sleep(0.5)
-
-"""
+""" Reference for functionality with different adc
 if __name__ == '__main__':
 
     adc = Adafruit_ADS1x15.ADS1015()
