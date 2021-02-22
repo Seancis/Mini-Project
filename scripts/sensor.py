@@ -25,7 +25,7 @@ def value():
 
 def bpm():
 # initialization 
-    GAIN = 2/3  
+    GAIN = 2/3  # not being used, need to look more into this
     curState = 0
     thresh = 525  # mid point in the waveform
     P = 512
@@ -45,7 +45,7 @@ def bpm():
     # Main loop. use Ctrl-c to stop the code
     while True:
         # read from the ADC
-        Signal = value()   #TODO: Select the correct ADC channel. I have selected A0 here
+        Signal = value()   # no gain configuration using this adc
         curTime = int(time.time()*1000)
 
         sampleCounter += curTime - lastTime;      #                   # keep track of the time in mS with this variable
