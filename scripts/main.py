@@ -44,14 +44,14 @@ GPIO.cleanup()
 spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
 cs = digitalio.DigitalInOut(board.D5)
 mcp = MCP.MCP3008(spi, cs)
-adc = AnalogIn(mcp, MCP.P0)
+channel0 = AnalogIn(mcp, MCP.P0)
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(17,  GPIO.OUT)
 
 while True:
-  print('Raw ADC Value: ', adc.value)
-  print('ADC Voltage: ' + str(adc.voltage) + 'V')
+  print('Raw ADC Value: ', channel0.value)
+  print('ADC Voltage: ' + str(channel0.voltage) + 'V')
   time.sleep(0.5)
 
 """
