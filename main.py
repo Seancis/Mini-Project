@@ -61,7 +61,7 @@ try:
 
         if bpm > 0:
             lcd_line_1 = "BPM: %d" % bpm
-            lcd_line_2 = "Calories Burned: %d" % calories
+            lcd_line_2 = "\nCalories Burned: %d" % calories
             lcd.message = lcd_line_1 + lcd_line_2
             print("BPM: %d" % bpm)
         else:
@@ -69,7 +69,7 @@ try:
             lcd_line_2 = " "
             lcd.message = lcd_line_1 + lcd_line_2
             print("No Heartbeat found")
-        time.sleep(2)
+        time.sleep(20)
 except:
     p.stopAsyncBPM()
 
