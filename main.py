@@ -53,7 +53,7 @@ p.startAsyncBPM()
 try:
     while True:
         bpm = p.BPM #Getting bpm from sensor
-        calories = ((-55.0969 + (0.6309 x bpm) + (0.1988 x 62) + (0.2017 x 30))/4.184) x 60 x 1
+        calories = ((-55.0969 + (0.6309 * bpm) + (0.1988 * 62) + (0.2017 * 30))/4.184) * 60 * 1
         """Where HR = Heart rate (in beats/minute)
         W = Weight (in kilograms)
         A = Age (in years)
@@ -69,7 +69,7 @@ try:
 
             mydb.commit()
 
-        print(mycursor.rowcount, "record inserted.")
+            print(mycursor.rowcount, "record inserted.")
         else:
             lcd_line_1 = "No Heartbeat found"
             lcd_line_2 = "No Calories Burned"
