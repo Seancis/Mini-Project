@@ -1,5 +1,3 @@
-# extended from https://github.com/WorldFamousElectronics/PulseSensor_Amped_Arduino
-
 import time
 import threading
 from MCP3008 import MCP3008
