@@ -61,21 +61,25 @@ try:
 
         if bpm > 0:
             lcd_line_1 = "BPM: %d" % bpm
-            lcd_line_1 = "Calories Burned: %d" % calories
+            lcd_line_2 = "Calories Burned: %d" % calories
             lcd.message = lcd_line_1 + lcd_line_2
-            sql = "INSERT INTO heartbeats (totalHeartBeats, caloriesburned) VALUES (%s, %s)"
+            print("BPM: %d" % bpm)
+        else:
+            lcd_line_1 = "No Heartbeat"
+            lcd_line_2 = " "
+            lcd.message = lcd_line_1 + lcd_line_2
+            print("No Heartbeat found")
+        time.sleep(2)
+except:
+    p.stopAsyncBPM()
+
+
+"""
+sql = "INSERT INTO heartbeats (totalHeartBeats, caloriesburned) VALUES (%s, %s)"
             val = (bpm, calories)
             mycursor.execute(sql, val)
 
             mydb.commit()
 
             print(mycursor.rowcount, "record inserted.")
-        else:
-            lcd_line_1 = "No Heartbeat found"
-            lcd_line_2 = "No Calories Burned"
-            lcd.message = lcd_line_1 + lcd_line_2
-        time.sleep(30)
-except:
-    p.stopAsyncBPM()
-
-
+"""
