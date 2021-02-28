@@ -60,8 +60,8 @@ try:
         T = Exercise duration time (in hours)"""
 
         if bpm > 0:
-            lcd_line_1 = "BPM: %d" % bpm
-            lcd_line_2 = "\nCalories Burned: %d" % calories
+            lcd_line_1 = "BPM: %d         " % bpm
+            lcd_line_2 = "\nCal.Burned: %d" % calories
             lcd.message = lcd_line_1 + lcd_line_2
             print("BPM: %d" % bpm)
         else:
