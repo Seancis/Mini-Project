@@ -12,12 +12,14 @@ mycursor = mydb.cursor()
 
 sql = "SELECT * FROM heartbeats;"
 mycursor.execute(sql)
-records = cursor.fetchall()
-print('Total number of rows in table', cursor.rowcount)
+records = mycursor.fetchall()
+print('Total number of rows in table', mycursor.rowcount)
 
 for row in records:
     print(row[0])
     print(row[1])
+    print(row[2])
+
 
 mydb.commit()
 
