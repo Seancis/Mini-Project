@@ -64,6 +64,13 @@ try:
             lcd_line_2 = "\nCal.Burned: %d" % calories
             lcd.message = lcd_line_1 + lcd_line_2
             print("BPM: %d" % bpm)
+            sql = "INSERT INTO heartbeats (totalHeartBeats, caloriesburned) VALUES (%s, %s)"
+            val = (bpm, calories)
+            mycursor.execute(sql, val)
+
+            mydb.commit()
+
+            print(mycursor.rowcount, "record inserted.")
         else:
             lcd_line_1 = "No Heartbeat"
             lcd_line_2 = " "
