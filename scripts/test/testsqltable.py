@@ -15,10 +15,7 @@ mycursor.execute(sql)
 records = mycursor.fetchall()
 print('Total number of rows in table', mycursor.rowcount)
 
-for row in records:
-    print(row[0])
-    print(row[1])
-    print(row[2])
+print(records)
 
 
 mydb.commit()
